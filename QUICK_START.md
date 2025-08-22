@@ -23,16 +23,16 @@ Edit `package.json` and update these fields with your information:
   "author": {
     "name": "Your Real Name",
     "email": "your.email@example.com",
-    "url": "https://github.com/yourusername"
+    "url": "https://github.com/Rajesh07071999"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/react-super-loader.git"
+    "url": "https://github.com/Rajesh07071999/react-super-loader.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/react-super-loader/issues"
+    "url": "https://github.com/Rajesh07071999/react-super-loader/issues"
   },
-  "homepage": "https://github.com/yourusername/react-super-loader#readme"
+  "homepage": "https://github.com/Rajesh07071999/react-super-loader#readme"
 }
 ```
 
@@ -52,7 +52,7 @@ Edit `package.json` and update these fields with your information:
 git init
 git add .
 git commit -m "Initial commit: React Super Loader package"
-git remote add origin https://github.com/yourusername/react-super-loader.git
+git remote add origin https://github.com/Rajesh07071999/react-super-loader.git
 git push -u origin main
 ```
 

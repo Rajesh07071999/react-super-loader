@@ -210,7 +210,7 @@ function LoaderShowcase() {
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/react-super-loader.git
+git clone https://github.com/Rajesh07071999/react-super-loader.git
 cd react-super-loader
 
 # Install dependencies

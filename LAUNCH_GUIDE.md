@@ -33,16 +33,16 @@ Edit `package.json` and update the following fields:
   "author": {
     "name": "Your Real Name",
     "email": "your.real.email@example.com",
-    "url": "https://github.com/yourusername"
+    "url": "https://github.com/Rajesh07071999"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/react-super-loader.git"
+    "url": "https://github.com/Rajesh07071999/react-super-loader.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/react-super-loader/issues"
+    "url": "https://github.com/Rajesh07071999/react-super-loader/issues"
   },
-  "homepage": "https://github.com/yourusername/react-super-loader#readme"
+  "homepage": "https://github.com/Rajesh07071999/react-super-loader#readme"
 }
 ```
 
@@ -111,7 +111,7 @@ git add .
 git commit -m "Initial commit: React Super Loader package"
 
 # Add remote repository
-git remote add origin https://github.com/yourusername/react-super-loader.git
+git remote add origin https://github.com/Rajesh07071999/react-super-loader.git
 
 # Push to GitHub
 git push -u origin main
@@ -201,7 +201,7 @@ Update your README.md with badges:
 ```markdown
 ![NPM Version](https://img.shields.io/npm/v/react-super-loader)
 ![NPM Downloads](https://img.shields.io/npm/dm/react-super-loader)
-![GitHub Stars](https://img.shields.io/github/stars/yourusername/react-super-loader)
+![GitHub Stars](https://img.shields.io/github/stars/Rajesh07071999/react-super-loader)
 ![License](https://img.shields.io/npm/l/react-super-loader)
 ```
 
@@ -272,7 +272,7 @@ npm publish
 ## 🚨 Common Issues & Solutions
 
 ### Issue: Package name already taken
-**Solution**: Choose a different name or use scoped package (`@yourusername/react-super-loader`)
+**Solution**: Choose a different name or use scoped package (`@Rajesh07071999/react-super-loader`)
 
 ### Issue: Build fails
 **Solution**: Check TypeScript errors and fix them before building
