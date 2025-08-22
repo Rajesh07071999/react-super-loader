@@ -258,10 +258,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Built with React and TypeScript
 - Styled with CSS animations
 
-## 📞 Support
-
-If you have any questions or need help, please open an issue on GitHub.
-
----
-
-Made with ❤️ by [Your Name] 
