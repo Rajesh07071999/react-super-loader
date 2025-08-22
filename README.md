@@ -6,6 +6,8 @@ A beautiful, customizable loading component for React applications with multiple
 ![TypeScript](https://img.shields.io/badge/TypeScript-5+-blue?logo=typescript)
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![NPM](https://img.shields.io/badge/NPM-Package-orange?logo=npm)
+![Downloads](https://img.shields.io/npm/dm/react-super-loader)
+![Version](https://img.shields.io/npm/v/react-super-loader)
 
 ## ✨ Features
 
@@ -17,6 +19,7 @@ A beautiful, customizable loading component for React applications with multiple
 - 🔧 **TypeScript**: Full TypeScript support
 - 🎯 **Accessible**: Proper ARIA attributes and keyboard navigation
 - 🚀 **Modern**: Built with React 18+ and modern JavaScript
+- 🔝 **Top Position**: Google-style top loader with smooth animations
 
 ## 📦 Installation
 
@@ -103,6 +106,15 @@ import { Loader } from 'react-super-loader';
     boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
   }}
 />
+
+// Google-style top loader
+<Loader 
+  type="wave"
+  size="small"
+  color="#4285f4"
+  text="Searching..."
+  position="top"
+/>
 ```
 
 ### Conditional Loading
@@ -178,6 +190,7 @@ function LoaderShowcase() {
 | `showText` | `boolean` | `true` | Whether to show text |
 | `textColor` | `string` | `color` | Text color |
 | `textSize` | `string` | `'14px'` | Text font size |
+| `position` | `'inline' \| 'top'` | `'inline'` | Position of the loader |
 
 ## 🎯 Loader Types
 
@@ -192,12 +205,28 @@ function LoaderShowcase() {
 - **bars**: Animated bars
 - **grid**: Grid of fading squares
 
+## 🔝 Position Options
+
+- **inline**: Normal flow positioning (default)
+- **top**: Fixed overlay at the top of the page (Google-style)
+
 ## 📏 Size Options
 
 - **small**: 20px
 - **medium**: 40px
 - **large**: 60px
 - **xlarge**: 80px
+
+## 🌟 Why Choose React Super Loader?
+
+- **🎨 Beautiful Animations**: 10 different animation types to choose from
+- **🔝 Google-Style Top Loader**: Perfect for search operations and page transitions
+- **⚡ Lightweight**: No external dependencies, pure React and CSS
+- **🔧 TypeScript Ready**: Full TypeScript support with comprehensive types
+- **📱 Responsive**: Works perfectly on all devices and screen sizes
+- **🎯 Highly Customizable**: Colors, sizes, speeds, and more
+- **🚀 Modern**: Built with React 18+ and modern JavaScript
+- **📦 Easy to Use**: Simple API with sensible defaults
 
 ## 🛠️ Development
 

@@ -31,8 +31,8 @@ Edit `package.json` and update the following fields:
 {
   "name": "react-super-loader",
   "author": {
-    "name": "Your Real Name",
-    "email": "your.real.email@example.com",
+    "name": "Rajesh Lenka",
+    "email": "rajeshlenka19999@gmail.com",
     "url": "https://github.com/Rajesh07071999"
   },
   "repository": {
@@ -96,45 +96,9 @@ You should see:
 - `index.esm.js` (ES Module build)
 - `index.d.ts` (TypeScript definitions)
 
-## 📦 Step 3: Prepare for Publication
 
-### 3.1 Create Git Repository
 
-```bash
-# Initialize git (if not already done)
-git init
 
-# Add all files
-git add .
-
-# Create initial commit
-git commit -m "Initial commit: React Super Loader package"
-
-# Add remote repository
-git remote add origin https://github.com/Rajesh07071999/react-super-loader.git
-
-# Push to GitHub
-git push -u origin main
-```
-
-### 3.2 Create GitHub Repository
-
-1. Go to [GitHub](https://github.com)
-2. Click "New repository"
-3. Name it `react-super-loader`
-4. Make it public
-5. Don't initialize with README (we already have one)
-6. Click "Create repository"
-
-### 3.3 Update README
-
-Make sure your README.md includes:
-- ✅ Clear description
-- ✅ Installation instructions
-- ✅ Usage examples
-- ✅ API documentation
-- ✅ Contributing guidelines
-- ✅ License information
 
 ## 🔐 Step 4: NPM Account Setup
 
@@ -269,19 +233,8 @@ npm version major
 npm publish
 ```
 
-## 🚨 Common Issues & Solutions
 
-### Issue: Package name already taken
-**Solution**: Choose a different name or use scoped package (`@Rajesh07071999/react-super-loader`)
 
-### Issue: Build fails
-**Solution**: Check TypeScript errors and fix them before building
-
-### Issue: Tests failing
-**Solution**: Run `npm test` and fix failing tests
-
-### Issue: NPM login fails
-**Solution**: Enable 2FA on your npm account and use access tokens
 
 ## 📊 Success Metrics
 
@@ -321,8 +274,3 @@ If you encounter any issues:
 3. Create a new issue with detailed information
 4. Ask in relevant developer communities
 
----
-
-**Good luck with your npm package! 🚀**
-
-Remember: The key to a successful npm package is not just the initial launch, but consistent maintenance and community engagement. 

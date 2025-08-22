@@ -1,7 +1,7 @@
 {
   "name": "react-super-loader",
-  "version": "1.0.1",
-  "description": "A beautiful, customizable loading component for React applications with multiple animation styles",
+  "version": "1.0.2",
+  "description": "🚀 A beautiful, customizable loading component for React with 10+ animation types, Google-style top loader, and full TypeScript support",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
@@ -22,7 +22,7 @@
     "build-storybook": "build-storybook"
   },
   "keywords": [
-    "react",
+    "react-super-loader",
     "loader",
     "spinner",
     "loading",
@@ -30,7 +30,18 @@
     "component",
     "typescript",
     "ui",
-    "ux"
+    "ux",
+    "react-loader",
+    "react-spinner",
+    "loading-component",
+    "progress-indicator",
+    "google-loader",
+    "top-loader",
+    "fixed-loader",
+    "overlay-loader",
+    "modern-loader",
+    "beautiful-loader",
+    "customizable-loader"
   ],
   "author": {
     "name": "Rajesh",
@@ -46,6 +57,11 @@
     "url": "https://github.com/Rajesh07071999/react-super-loader/issues"
   },
   "homepage": "https://github.com/Rajesh07071999/react-super-loader#readme",
+  "demo": "https://rajesh07071999.github.io/react-super-loader",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rajesh07071999/react-super-loader.git"
+  },
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"

@@ -12,6 +12,8 @@ export type LoaderType =
 
 export type LoaderSize = 'small' | 'medium' | 'large' | 'xlarge';
 
+export type LoaderPosition = 'inline' | 'top';
+
 export interface LoaderProps {
   /** Type of loader animation */
   type?: LoaderType;
@@ -41,4 +43,6 @@ export interface LoaderProps {
   textColor?: string;
   /** Text size */
   textSize?: string;
+  /** Position of the loader - 'inline' for normal flow, 'top' for fixed top overlay */
+  position?: LoaderPosition;
 } 
