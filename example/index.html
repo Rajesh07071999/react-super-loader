@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Super Loader Demo</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+        
+        .loader-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .loader-item {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+        
+        .loader-item h3 {
+            margin: 0 0 15px 0;
+            color: #555;
+        }
+        
+        .controls {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .control-group {
+            margin-bottom: 15px;
+        }
+        
+        .control-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .control-group select,
+        .control-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .color-picker {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .color-picker input[type="color"] {
+            width: 50px;
+            height: 40px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .color-picker input[type="text"] {
+            flex: 1;
+        }
+        
+        .code-example {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .feature {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+        }
+        
+        .feature h4 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+        
+        .feature p {
+            margin: 0;
+            color: #666;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 React Super Loader</h1>
+        
+        <div class="controls">
+            <h3>Customize Your Loader</h3>
+            <div class="control-group">
+                <label for="type">Type:</label>
+                <select id="type">
+                    <option value="spinner">Spinner</option>
+                    <option value="dots">Dots</option>
+                    <option value="pulse">Pulse</option>
+                    <option value="wave">Wave</option>
+                    <option value="bounce">Bounce</option>
+                    <option value="fade">Fade</option>
+                    <option value="ring">Ring</option>
+                    <option value="cube">Cube</option>
+                    <option value="bars">Bars</option>
+                    <option value="grid">Grid</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="size">Size:</label>
+                <select id="size">
+                    <option value="small">Small</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="large">Large</option>
+                    <option value="xlarge">XLarge</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label>Color:</label>
+                <div class="color-picker">
+                    <input type="color" id="colorPicker" value="#007bff">
+                    <input type="text" id="colorText" value="#007bff" placeholder="Enter color">
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label for="speed">Speed (seconds):</label>
+                <input type="range" id="speed" min="0.5" max="3" step="0.1" value="1">
+                <span id="speedValue">1.0s</span>
+            </div>
+            
+            <div class="control-group">
+                <label for="text">Text:</label>
+                <input type="text" id="text" value="Loading..." placeholder="Enter loading text">
+            </div>
+        </div>
+        
+        <div id="demo-container" style="text-align: center; padding: 40px;">
+            <!-- Demo loader will be rendered here -->
+        </div>
+        
+        <div class="code-example">
+            <strong>Usage Example:</strong><br>
+            <span style="color: #ff6b6b;">import</span> { Loader } <span style="color: #ff6b6b;">from</span> <span style="color: #4ecdc4;">'react-super-loader'</span>;<br><br>
+            
+            <span style="color: #ff6b6b;">function</span> <span style="color: #4ecdc4;">App</span>() {<br>
+            &nbsp;&nbsp;<span style="color: #ff6b6b;">return</span> (<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span style="color: #4ecdc4;">Loader</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type=<span style="color: #ffd93d;">"spinner"</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;size=<span style="color: #ffd93d;">"medium"</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color=<span style="color: #ffd93d;">"#007bff"</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text=<span style="color: #ffd93d;">"Loading..."</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;/&gt;<br>
+            &nbsp;&nbsp;);<br>
+            }
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <h4>🎨 10 Animation Types</h4>
+                <p>Choose from spinner, dots, pulse, wave, bounce, fade, ring, cube, bars, and grid animations.</p>
+            </div>
+            <div class="feature">
+                <h4>📏 4 Size Options</h4>
+                <p>Small, medium, large, and xlarge sizes to fit any design need.</p>
+            </div>
+            <div class="feature">
+                <h4>🎯 Fully Customizable</h4>
+                <p>Customize colors, speed, text, dimensions, and more with simple props.</p>
+            </div>
+            <div class="feature">
+                <h4>⚡ Lightweight</h4>
+                <p>No external dependencies, pure React and CSS animations for optimal performance.</p>
+            </div>
+            <div class="feature">
+                <h4>🔧 TypeScript Ready</h4>
+                <p>Full TypeScript support with comprehensive type definitions.</p>
+            </div>
+            <div class="feature">
+                <h4>📱 Responsive</h4>
+                <p>Works perfectly on all screen sizes and devices.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <script type="text/babel">
+        // This is a demo script - in real usage, you would import the component
+        const { useState, useEffect } = React;
+        
+        // Mock Loader component for demo purposes
+        const Loader = ({ type, size, color, speed, text, ...props }) => {
+            const [styles, setStyles] = useState('');
+            
+            useEffect(() => {
+                const sizeMap = { small: 20, medium: 40, large: 60, xlarge: 80 };
+                const sizeValue = sizeMap[size];
+                
+                const loaderStyles = `
+                    .demo-loader {
+                        display: inline-flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 8px;
+                    }
+                    
+                    .demo-loader-text {
+                        font-size: 14px;
+                        color: ${color};
+                        margin: 0;
+                    }
+                    
+                    .demo-spinner {
+                        width: ${sizeValue}px;
+                        height: ${sizeValue}px;
+                        border: 3px solid transparent;
+                        border-top: 3px solid ${color};
+                        border-radius: 50%;
+                        animation: spin ${speed}s linear infinite;
+                    }
+                    
+                    .demo-dots {
+                        display: flex;
+                        gap: 4px;
+                    }
+                    
+                    .demo-dots .dot {
+                        width: ${sizeValue / 4}px;
+                        height: ${sizeValue / 4}px;
+                        background-color: ${color};
+                        border-radius: 50%;
+                        animation: dots ${speed}s ease-in-out infinite;
+                    }
+                    
+                    .demo-dots .dot:nth-child(1) { animation-delay: 0s; }
+                    .demo-dots .dot:nth-child(2) { animation-delay: ${speed * 0.2}s; }
+                    .demo-dots .dot:nth-child(3) { animation-delay: ${speed * 0.4}s; }
+                    
+                    .demo-pulse {
+                        width: ${sizeValue}px;
+                        height: ${sizeValue}px;
+                        background-color: ${color};
+                        border-radius: 50%;
+                        animation: pulse ${speed}s ease-in-out infinite;
+                    }
+                    
+                    .demo-wave {
+                        display: flex;
+                        gap: 3px;
+                    }
+                    
+                    .demo-wave .bar {
+                        width: 3px;
+                        height: ${sizeValue}px;
+                        background-color: ${color};
+                        animation: wave ${speed}s ease-in-out infinite;
+                    }
+                    
+                    .demo-wave .bar:nth-child(1) { animation-delay: 0s; }
+                    .demo-wave .bar:nth-child(2) { animation-delay: ${speed * 0.1}s; }
+                    .demo-wave .bar:nth-child(3) { animation-delay: ${speed * 0.2}s; }
+                    .demo-wave .bar:nth-child(4) { animation-delay: ${speed * 0.3}s; }
+                    .demo-wave .bar:nth-child(5) { animation-delay: ${speed * 0.4}s; }
+                    
+                    @keyframes spin {
+                        0% { transform: rotate(0deg); }
+                        100% { transform: rotate(360deg); }
+                    }
+                    
+                    @keyframes dots {
+                        0%, 80%, 100% { transform: scale(0); opacity: 0.5; }
+                        40% { transform: scale(1); opacity: 1; }
+                    }
+                    
+                    @keyframes pulse {
+                        0% { transform: scale(0.8); opacity: 0.5; }
+                        50% { transform: scale(1.2); opacity: 1; }
+                        100% { transform: scale(0.8); opacity: 0.5; }
+                    }
+                    
+                    @keyframes wave {
+                        0%, 40%, 100% { transform: scaleY(0.4); }
+                        20% { transform: scaleY(1); }
+                    }
+                `;
+                
+                setStyles(loaderStyles);
+            }, [type, size, color, speed]);
+            
+            const renderLoader = () => {
+                switch (type) {
+                    case 'spinner':
+                        return <div className="demo-spinner" />;
+                    case 'dots':
+                        return (
+                            <div className="demo-dots">
+                                <div className="dot" />
+                                <div className="dot" />
+                                <div className="dot" />
+                            </div>
+                        );
+                    case 'pulse':
+                        return <div className="demo-pulse" />;
+                    case 'wave':
+                        return (
+                            <div className="demo-wave">
+                                <div className="bar" />
+                                <div className="bar" />
+                                <div className="bar" />
+                                <div className="bar" />
+                                <div className="bar" />
+                            </div>
+                        );
+                    default:
+                        return <div className="demo-spinner" />;
+                }
+            };
+            
+            return (
+                <>
+                    <style>{styles}</style>
+                    <div className="demo-loader">
+                        {renderLoader()}
+                        <p className="demo-loader-text">{text}</p>
+                    </div>
+                </>
+            );
+        };
+        
+        const DemoApp = () => {
+            const [type, setType] = useState('spinner');
+            const [size, setSize] = useState('medium');
+            const [color, setColor] = useState('#007bff');
+            const [speed, setSpeed] = useState(1);
+            const [text, setText] = useState('Loading...');
+            
+            useEffect(() => {
+                const typeSelect = document.getElementById('type');
+                const sizeSelect = document.getElementById('size');
+                const colorPicker = document.getElementById('colorPicker');
+                const colorText = document.getElementById('colorText');
+                const speedSlider = document.getElementById('speed');
+                const speedValue = document.getElementById('speedValue');
+                const textInput = document.getElementById('text');
+                
+                typeSelect.addEventListener('change', (e) => setType(e.target.value));
+                sizeSelect.addEventListener('change', (e) => setSize(e.target.value));
+                colorPicker.addEventListener('change', (e) => {
+                    setColor(e.target.value);
+                    colorText.value = e.target.value;
+                });
+                colorText.addEventListener('input', (e) => {
+                    setColor(e.target.value);
+                    colorPicker.value = e.target.value;
+                });
+                speedSlider.addEventListener('input', (e) => {
+                    const value = parseFloat(e.target.value);
+                    setSpeed(value);
+                    speedValue.textContent = value.toFixed(1) + 's';
+                });
+                textInput.addEventListener('input', (e) => setText(e.target.value));
+            }, []);
+            
+            return (
+                <Loader
+                    type={type}
+                    size={size}
+                    color={color}
+                    speed={speed}
+                    text={text}
+                />
+            );
+        };
+        
+        ReactDOM.render(<DemoApp />, document.getElementById('demo-container'));
+    </script>
+</body>
+</html> 
