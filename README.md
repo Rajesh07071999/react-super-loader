@@ -6,7 +6,7 @@ A beautiful, customizable loading component for React applications with multiple
 ![TypeScript](https://img.shields.io/badge/TypeScript-5+-blue?logo=typescript)
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![NPM](https://img.shields.io/badge/NPM-Package-orange?logo=npm)
-![Downloads](https://img.shields.io/npm/dm/react-super-loader)
+![Downloads](https://img.shields.io/npm/dw/react-super-loader)
 ![Version](https://img.shields.io/npm/v/react-super-loader)
 
 ## ✨ Features
