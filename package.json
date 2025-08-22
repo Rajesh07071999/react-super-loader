@@ -1,6 +1,6 @@
 {
   "name": "react-super-loader",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "🚀 A beautiful, customizable loading component for React with 10+ animation types, Google-style top loader, and full TypeScript support",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
