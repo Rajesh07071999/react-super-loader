@@ -117,7 +117,36 @@ import { Loader } from 'react-super-loader';
 />
 ```
 
-### Conditional Loading
+### Next.js Example
+
+React Super Loader works perfectly with Next.js. Just mark your component as a client component if you're using hooks like `useState` or `useEffect`.
+
+```jsx
+"use client";
+import { useState, useEffect } from "react";
+import { Loader } from "react-super-loader";
+
+export default function Home() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate an API call
+    setTimeout(() => setLoading(false), 2000);
+  }, []);
+
+  if (loading) {
+    return (
+      <div style={{ textAlign: "center", marginTop: "50px" }}>
+        <Loader type="wave" size="large" color="#4285f4" text="Fetching data..." />
+      </div>
+    );
+  }
+
+  return <h1>Welcome to Next.js!</h1>;
+}
+```
+
+### React js Loading
 
 ```jsx
 import { useState } from 'react';
